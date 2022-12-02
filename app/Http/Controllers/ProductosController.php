@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductoRequest;
 
 use App\Models\Producto;
 use App\Models\Marca;
@@ -37,29 +38,33 @@ class ProductosController extends Controller
         return view('dashboard.productos.create', compact('marcas', 'categorias'));
     }
     
-    public function store(){
+    public function store(Request $request){
 
+        $producto = new Producto();
 
+        $producto->nombre = $request->nombre; 
+        $producto->descripcion = $request->descripcion; 
+        $producto->precio = $request->precio; 
+        $producto->cantidad = $request->cantidad; 
+        $producto->oferta = $request->oferta; 
+        $producto->marca_id = $request->marca_id; 
+        $producto->categoria_id = $request->categoria_id; 
         
-        //dd(request()->all());
-        $data = request()->validate([
-            'nombre' => 'required',
-            'descripcion' => ['required'],
-            'precio' => ['required','numeric'],
-            'cantidad' => ['required','numeric'],
-            'oferta' => '',
-            'categoria_id' => 'required',
-            'marca_id' => 'required'
-        ]);
+       //dd(request()->all());
+        //$data = request()->all();
+        //dd($producto);
+        $producto->save();
         
-
-        Producto::create($data);
         return redirect('/dashboard/productos');
+        /* Producto::create($data);
+        return redirect('/dashboard/productos'); */
     }
 
     public function edit(Producto $producto){
+        $marcas = Marca::all();
+        $categorias = Categoria::all();
         //dd($producto);
-        return view('dashboard.productos.edit', compact('producto'));
+        return view('dashboard.productos.edit', compact('producto','categorias','marcas'));
     }
 
     public function update(Producto $producto){

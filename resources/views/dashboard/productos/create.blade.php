@@ -104,9 +104,9 @@
 
                         <div class="input-group mt-5 mb-5">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="categoria">Categoría Producto</label>
+                                <label class="input-group-text" for="categoria_id">Categoría Producto</label>
                             </div>
-                            <select class="custom-select  @error('categoria') is-invalid @enderror" id="categoria"  name="categoria">
+                            <select class="custom-select  @error('categoria') is-invalid @enderror" id="categoria_id"  name="categoria_id">
                                 <option selected>Seleccionar una Categoría...</option>
                                 {{-- poner ciclo de cate --}}
                                 @foreach ($categorias as $categoria )
@@ -123,9 +123,9 @@
 
                         <div class="input-group mt-5 mb-5">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="marca">Marca Producto</label>
+                                <label class="input-group-text" for="marca_id">Marca Producto</label>
                             </div>
-                            <select class="custom-select  @error('marca') is-invalid @enderror" id="marca" name="marca">
+                            <select class="custom-select  @error('marca') is-invalid @enderror" id="marca_id" name="marca_id">
                                 <option selected>Seleccionar una Marca...</option>
                                 {{-- poner ciclo de cate --}}
                                 @foreach ($marcas as $marca )
