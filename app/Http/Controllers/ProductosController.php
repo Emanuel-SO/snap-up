@@ -63,16 +63,33 @@ class ProductosController extends Controller
     public function edit(Producto $producto){
         $marcas = Marca::all();
         $categorias = Categoria::all();
+
+        $pCategoria = Categoria::find($producto->categoria_id);
+        $pMarca = Marca::find($producto->marca_id);
+        
+       
         //dd($producto);
-        return view('dashboard.productos.edit', compact('producto','categorias','marcas'));
+        return view('dashboard.productos.edit', compact('producto','categorias','marcas','pCategoria','pMarca'));
     }
 
     public function update(Producto $producto){
         $data = request()->validate([
-            'nombre' => 'required'
+            'nombre' => 'required',
+            'descripcion'=> 'required',
+            'precio' => 'required',
+            'cantidad' => 'required',
+            'oferta' => 'required',
+            'marca_id' => 'required',
+            'categoria_id' => 'required',
         ]);
 
+        //dd($data);
+        //dd($producto);
+        
+        //dd($producto);
         $producto->update($data);
+
+
         return redirect('dashboard/productos');
     }
 

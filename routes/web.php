@@ -23,7 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //RUTAS DASHBOARD ADMIN
 
-//RUTAS DASHBOARD ADMIN CATEGORIAS
+    //RUTAS DASHBOARD ADMIN CATEGORIAS
 Route::get('dashboard/categorias', [App\Http\Controllers\CategoriasController::class, 'index'])
     ->middleware('auth.admin')
     ->name('categorias.index');
@@ -43,7 +43,7 @@ Route::delete('dashboard/categorias/{categoria}', [App\Http\Controllers\Categori
     ->middleware('auth.admin')
     ->name('categorias.destroy');
 
-//RUTAS DASHBOARD ADMIN MARCAS
+    //RUTAS DASHBOARD ADMIN MARCAS
 Route::get('dashboard/marcas', [App\Http\Controllers\MarcasController::class, 'index'])
     ->middleware('auth.admin')
     ->name('marcas.index');
@@ -63,7 +63,7 @@ Route::delete('dashboard/marcas/{marca}', [App\Http\Controllers\MarcasController
     ->middleware('auth.admin')
     ->name('marcas.destroy');
 
-//RUTAS DASHBOARD ADMIN PRODUCTOS
+    //RUTAS DASHBOARD ADMIN PRODUCTOS
 Route::get('dashboard/productos', [App\Http\Controllers\ProductosController::class, 'index'])
     ->middleware('auth.admin')
     ->name('productos.index');
@@ -82,3 +82,23 @@ Route::patch('dashboard/productos/{producto}', [App\Http\Controllers\ProductosCo
 Route::delete('dashboard/productos/{producto}', [App\Http\Controllers\ProductosController::class, 'destroy'])
     ->middleware('auth.admin')
     ->name('productos.destroy');
+
+    //RUTAS DASHBOARD ADMIN PRODUCTOS
+Route::get('dashboard/productos_imagenes/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'show'])
+->middleware('auth.admin')
+->name('productos_imagenes.show');
+Route::get('dashboard/productos_imagenes/create', [App\Http\Controllers\ProductosImagenesController::class, 'create'])
+->middleware('auth.admin')
+->name('productos_imagenes.create');
+Route::post('dashboard/productos_imagenes', [App\Http\Controllers\ProductosImagenesController::class, 'store'])
+->middleware('auth.admin')
+->name('productos_imagenes.store');
+Route::get('dashboard/productos_imagenes/{producto}/edit', [App\Http\Controllers\ProductosImagenesController::class, 'edit'])
+->middleware('auth.admin')
+->name('productos_imagenes.edit');
+Route::patch('dashboard/productos_imagenes/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'update'])
+->middleware('auth.admin')
+->name('productos_imagenes.update');
+Route::delete('dashboard/productos_imagenes/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'destroy'])
+->middleware('auth.admin')
+->name('productos_imagenes.destroy');

@@ -10,6 +10,7 @@
                     </div>
                     <form method="POST" action="/dashboard/productos/{{ $producto->id }}">
                         @csrf
+                        @method('PATCH')
 
                         <div class="row mb-3">
                             <label for="nombre" class="col-md-4 col-form-label text-md-end">Nombre de Producto</label>
@@ -29,19 +30,22 @@
                             
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <label for="descripcion">Descripción del Producto</label>
-                            <textarea class="form-control @error('descripcion') is-invalid @enderror"
-                              placeholder="{{ old('descripcion') ?? $producto->descripcion }}"
-                             id="descripcion"
-                             name="descripcion"   
-                             autocomplete="descripcion" autofocus></textarea>
+                        <div class="row mb-3">
+                            <label for="descripcion" class="col-md-4 col-form-label text-md-end">Descripción del Producto</label>
+
+                            <input id="descripcion" 
+                            type="text" 
+                            class="form-control @error('descripcion') is-invalid @enderror" 
+                            name="descripcion" 
+                            value="{{ old('descripcion') ?? $producto->descripcion }}"  
+                            autocomplete="descripcion" autofocus>
 
                             @error('descripcion')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            
                         </div>
 
                         <div class="row mb-3">
@@ -90,18 +94,20 @@
                                 <label class="input-group-text" for="oferta">Oferta Producto</label>
                             </div>
                             <select class="custom-select  @error('oferta') is-invalid @enderror" id="oferta"  name="oferta">
-                                <option selected value="{{ $producto->oferta }}">
+                                
                                 @if($producto->oferta == 1){
-                                    Activar
+                                    <option selected value="{{ $producto->oferta }}">Activar</option>
+                                    <option value="0">Desactivar</option>
                                 }
                                 @endif
                                 @if($producto->oferta === 0){
-                                    Desactivar
+                                    <option selected value="{{ $producto->oferta }}">Desactivar</option>
+                                    <option value='1'>Activar</option>
                                 }
                                 @endif
-                                </option>
-                                <option value='1'>Activar</option>
-                                <option value="0">Desactivar</option>
+                                
+                                
+                                
                             </select>
 
                             @error('oferta')
@@ -117,7 +123,7 @@
                             </div>
                             <select class="custom-select  @error('categoria') is-invalid @enderror" id="categoria_id"  name="categoria_id">
                                 <option selected value="{{ $producto->categoria_id }}">
-                                    {{$producto->categoria_id}}
+                                    {{$pCategoria->nombre}}
                                     </option>
                                 {{-- poner ciclo de cate --}}
                                 @foreach ($categorias as $categoria )
@@ -138,7 +144,7 @@
                             </div>
                             <select class="custom-select  @error('marca') is-invalid @enderror" id="marca_id" name="marca_id">
                                 <option selected value="{{ $producto->marca_id }}">
-                                    {{$producto->marca_id}}
+                                    {{$pMarca->nombre}}
                                     </option>
                                 {{-- poner ciclo de cate --}}
                                 @foreach ($marcas as $marca )
@@ -157,7 +163,7 @@
 
                         <div class="row">
                             <button class="btn btn-primary">
-                                Agregar Producto
+                                Editar Producto
                             </button>
                         </div>
 

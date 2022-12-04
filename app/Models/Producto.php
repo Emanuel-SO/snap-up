@@ -18,4 +18,8 @@ class Producto extends Model
     public function marca(){
         return $this->belongsTo(Marca::class);
     }
+
+    public function productimages(){
+        return $this->hasMany(Productimage::class);
+    }
 }

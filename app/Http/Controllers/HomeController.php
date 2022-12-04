@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Marca;
+use App\Models\Categoria;
+use App\Models\Producto;
 
 class HomeController extends Controller
 {
@@ -28,11 +30,13 @@ class HomeController extends Controller
     {
         
         $marca = Marca::count();
+        $categoria = Categoria::count();
+        $producto = Producto::count();
         //Como hacer que index reciba el id del usuario
         /* $user= User::find(1);
         $role_id = $user->role_id;
         $role = Role::find($role_id);
         return view('dashboard.index',compact('role')); */
-        return view('dashboard.index',compact('marca'));
+        return view('dashboard.index',compact('marca','categoria','producto'));
     }
 }
