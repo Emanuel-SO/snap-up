@@ -12,8 +12,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+    //RUTAS OFfline
+Route::get('/offline', function(){
+    return view('vendor.laravelpwa.offline');
+});
     //RUTAS APP
 Route::get('/', [App\Http\Controllers\AppController::class, 'index'])->name('app.index');
+//Route::view()
+Route::view('productos', 'app.productos');
+Route::view('producto', 'app.producto');
+Route::view('carrito', 'app.carrito');
 
 
 Auth::routes();

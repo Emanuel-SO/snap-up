@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- PWA assets--}}
+    @laravelPWA
 </head>
 <body>
     <div id="app">

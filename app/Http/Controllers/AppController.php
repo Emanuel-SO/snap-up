@@ -31,13 +31,13 @@ class AppController extends Controller
         $imagenes = $data_2; */
         foreach($productos as $producto){
             if($producto->oferta === 1){
-                $data_1 = $producto;
-                dd($producto->productimages()->first());
-                $data = $data_1->union($producto->productimages()->first());
+                $data_1[] = $producto;
+                
             }
         }
-        dd($data);
+        $productos = $data_1;
+        //dd($productos);
         
-        return view("app.index", compact('productos', 'imagenes'));
+        return view("app.index", compact('productos'));
     }
 }
