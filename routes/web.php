@@ -12,10 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+    //RUTAS APP
+Route::get('/', [App\Http\Controllers\AppController::class, 'index'])->name('app.index');
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
 
 Auth::routes();
 //RUTAS DASHBOARD
@@ -84,21 +83,21 @@ Route::delete('dashboard/productos/{producto}', [App\Http\Controllers\ProductosC
     ->name('productos.destroy');
 
     //RUTAS DASHBOARD ADMIN PRODUCTOS
+Route::get('dashboard/productos_imagenes/create/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'create'])
+    ->middleware('auth.admin')
+    ->name('productos_imagenes.create');
+Route::post('dashboard/productos_imagenes/store/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'store'])
+    ->middleware('auth.admin')
+    ->name('productos_imagenes.store');
 Route::get('dashboard/productos_imagenes/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'show'])
-->middleware('auth.admin')
-->name('productos_imagenes.show');
-Route::get('dashboard/productos_imagenes/create', [App\Http\Controllers\ProductosImagenesController::class, 'create'])
-->middleware('auth.admin')
-->name('productos_imagenes.create');
-Route::post('dashboard/productos_imagenes', [App\Http\Controllers\ProductosImagenesController::class, 'store'])
-->middleware('auth.admin')
-->name('productos_imagenes.store');
-Route::get('dashboard/productos_imagenes/{producto}/edit', [App\Http\Controllers\ProductosImagenesController::class, 'edit'])
-->middleware('auth.admin')
-->name('productos_imagenes.edit');
-Route::patch('dashboard/productos_imagenes/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'update'])
-->middleware('auth.admin')
-->name('productos_imagenes.update');
+    ->middleware('auth.admin')
+    ->name('productos_imagenes.show');
+Route::get('dashboard/productos_imagenes/{producto_imagen}/edit', [App\Http\Controllers\ProductosImagenesController::class, 'edit'])
+    ->middleware('auth.admin')
+    ->name('productos_imagenes.edit');
+Route::patch('dashboard/productos_imagenes/update/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'update'])
+    ->middleware('auth.admin')
+    ->name('productos_imagenes.update');
 Route::delete('dashboard/productos_imagenes/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'destroy'])
-->middleware('auth.admin')
-->name('productos_imagenes.destroy');
+    ->middleware('auth.admin')
+    ->name('productos_imagenes.destroy');

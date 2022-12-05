@@ -16,10 +16,11 @@ class CreateProductimagesTable extends Migration
         Schema::create('productimages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('producto_id');
-            $table->string('imagen');
+            $table->string('producto_imagen');
             $table->timestamps();
 
-            $table->index('producto_id');
+            $table->foreign('producto_id')->references('id')->on('productos')
+            ->onDelete('CASCADE');
         });
     }
 
