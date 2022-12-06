@@ -17,15 +17,17 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('categoria_id');
             $table->unsignedBigInteger('marca_id');
-            $table->string('nombre');
+            $table->string('nombre')->unique();;
             $table->text('descripcion')->nullable();
             $table->decimal('precio',7,2);
             $table->integer('cantidad');
             $table->boolean('oferta')->default(false);// poner falso o verdadero?
             $table->timestamps();
 
-            $table->index('categoria_id');
-            $table->index('marca_id');
+            $table->foreign('categoria_id')->references('id')->on('categorias')
+            ->onDelete('CASCADE');
+            $table->foreign('marca_id')->references('id')->on('marcas')
+            ->onDelete('CASCADE');
         });
     }
 

@@ -47,76 +47,30 @@
     </h2>
     <div class="container">
         <div class="row m-3">
-            <ul class="nav nav-pills nav-fill">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Opcion1</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Opcion2</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Opcion3</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Opcion4</a>
-                </li>
-              </ul>
+          <div class="d-grid gap-2 d-sm-block">
+              <a class="btn btn-primary col-sm-9 col-md-2 mx-2 my-2" type="button" href="" >Todas las Ofertas</a>
+            @foreach ($categorias as $categoria)  
+              <a class="btn btn-primary col-sm-9 col-md-2 mx-2 my-2" type="button" href="" >{{ $categoria->nombre }}</a>
+            @endforeach
+          </div>
         </div>
         <div class="row">
             @foreach ($productos as $producto)
             <div class="col-lg-3 my-2">
                 <div class="card" >
-                    <img src="#" class="card-img-top" alt="...">
+                    <img src="http://placehold.jp/350x200.png?text=No+Image" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h3 class="card-title">{{ $producto['nombre'] }}</h3>
-                        <p class="card-text">{{ $producto['descripcion'] }}</p>
+                        
                         <p class="card-text">${{ $producto['precio'] }} mnx</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="{{ route('app.showProducto', $producto->id) }}" class="btn btn-primary">Ver Producto</a>
                     </div>
                 </div>
             </div>
             @endforeach
 
-            <div class="col-lg-3 my-2">
-                <div class="card" >
-                    <img src="http://placehold.jp/350x200.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 my-2">
-                <div class="card" >
-                    <img src="http://placehold.jp/350x200.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 my-2">
-                <div class="card" >
-                    <img src="http://placehold.jp/350x200.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 my-2">
-                <div class="card" >
-                    <img src="http://placehold.jp/350x200.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+            
+
         </div>
     </div>
 </section>

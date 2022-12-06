@@ -45,7 +45,7 @@ class MarcasController extends Controller
     
     public function store(){
         $data = request()->validate([
-            'nombre' => 'required',
+            'nombre' => ['required','unique:App\Models\Marca,nombre'],
         ]);
 
         Marca::create($data);
@@ -58,7 +58,7 @@ class MarcasController extends Controller
 
     public function update(Marca $marca){
         $data = request()->validate([
-            'nombre' => 'required'
+            'nombre' => ['required','unique:App\Models\Marca,nombre'],
         ]);
 
         $marca->update($data);

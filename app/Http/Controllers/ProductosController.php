@@ -74,7 +74,7 @@ class ProductosController extends Controller
 
     public function update(Producto $producto){
         $data = request()->validate([
-            'nombre' => 'required',
+            'nombre' => ['required','unique:App\Models\Producto,nombre'],
             'descripcion'=> 'required',
             'precio' => 'required',
             'cantidad' => 'required',

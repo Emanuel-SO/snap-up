@@ -19,9 +19,9 @@ Route::get('/offline', function(){
 });
     //RUTAS APP
 Route::get('/', [App\Http\Controllers\AppController::class, 'index'])->name('app.index');
+Route::get('productos', [App\Http\Controllers\AppController::class, 'showTodosProductos'])->name('app.showTodosProductos');
+Route::get('producto/{producto}', [App\Http\Controllers\AppController::class, 'showProducto'])->name('app.showProducto');
 //Route::view()
-Route::view('productos', 'app.productos');
-Route::view('producto', 'app.producto');
 Route::view('carrito', 'app.carrito');
 
 

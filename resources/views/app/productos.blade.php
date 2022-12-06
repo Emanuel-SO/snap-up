@@ -9,12 +9,12 @@
             <div class="text-center">
                 <div class="dropdown m-3">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown button
+                      Opciones
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a class="dropdown-item" href="#">Buscar por Categoría</a></li>
+                      <li><a class="dropdown-item" href="#">Buscar por Marcas</a></li>
+                      
                     </ul>
                 </div>
             </div>
@@ -24,58 +24,34 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-sm-12 px-3">
-                <button class="btn btn-primary m-3">Opcion</button>
-                <button class="btn btn-primary m-3">Opcion</button>
-                <button class="btn btn-primary m-3">Opcion</button>
-                <button class="btn btn-primary m-3">Opcion</button>
+                @foreach ($categorias as $categoria )
+                    <button class="btn btn-primary col-sm-9 col-md-2 mx-2 my-2">{{ $categoria->nombre }}</button>
+                @endforeach
+            </div>
+            <div class="col-sm-12 px-3">
+                @foreach ($marcas as $marca )
+                    <button class="btn btn-primary col-sm-9 col-md-2 mx-2 my-2">{{ $marca->nombre }}</button>
+                @endforeach
             </div>
         </div>
     </div>
 </section>
 
 <section class="section">
-    <div class="container text-center">
+    <div class="container ">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
-            <div class="col col-lg-3 my-2">
-                <div class="card" >
-                    <img src="http://placehold.jp/350x200.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+            @foreach ($productos as $producto)    
+                <div class="col col-lg-3 my-2">
+                    <div class="card" >
+                        <img src="http://placehold.jp/350x200.png?text=No+Image" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $producto->nombre }}</h5>
+                            <p class="card-text">${{ $producto->precio }} mxn</p>
+                            <a href="#" class="btn btn-primary">Ver Producto</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col col-lg-3 my-2">
-                <div class="card" >
-                    <img src="http://placehold.jp/350x200.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-lg-3 my-2">
-                <div class="card" >
-                    <img src="http://placehold.jp/350x200.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-lg-3 my-2">
-                <div class="card" >
-                    <img src="http://placehold.jp/350x200.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     

@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Producto;
+use App\Models\Marca;
+use App\Models\Categoria;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +21,9 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->createAdmin();
         $this->createUser();
+        Marca::factory(4)->create();
+        Categoria::factory(4)->create();
+        Producto::factory(20)->create();
     }
 
     public function createAdmin(){
@@ -39,4 +45,6 @@ class DatabaseSeeder extends Seeder
         $user->save();
         /* ('Emanuel','emanuelsaucedo52@gmail.com',Hash::make('1234567890')); */
     }
+
+    
 }
