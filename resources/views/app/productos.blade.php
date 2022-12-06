@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <section class="section">
-    <img class="img-fluid" src="https://placehold.jp/3d4070/ffffff/1920x350.png" alt="" srcset="">
+    <img class="img-fluid" src="http://via.placeholder.com/1920x350.png?text=Titulo+Seccion" alt="" srcset="">
 
     {{-- <h1>Productos</h1> --}}
     <div class="container">
@@ -43,11 +43,11 @@
             @foreach ($productos as $producto)    
                 <div class="col col-lg-3 my-2">
                     <div class="card" >
-                        <img src="http://placehold.jp/350x200.png?text=No+Image" class="card-img-top" alt="...">
+                        <img src="http://via.placeholder.com/350x200.png?text=No+Image" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ $producto->nombre }}</h5>
                             <p class="card-text">${{ $producto->precio }} mxn</p>
-                            <a href="#" class="btn btn-primary">Ver Producto</a>
+                            <a href="{{ route('app.showProducto', $producto->id) }}" class="btn btn-primary">Ver Producto</a>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,7 @@
                           </div>
                           @empty
                           <div class="carousel-item active">
-                            <img src="http://placehold.jp/350x200.png?text=sin+imagen" class="d-block w-100" alt="...">
+                            <img src="http://via.placeholder.com/350x200.png?text=No+Image" class="d-block w-100" alt="...">
                         </div>
                           @endforelse
                         </div>
@@ -69,7 +69,7 @@
             @foreach ($recomendados as $recomendado)     
                 <div class="col-lg-3 my-2">
                     <div class="card" >
-                        <img src="http://placehold.jp/350x200.png" class="card-img-top" alt="...">
+                        <img src="http://via.placeholder.com/350x200.png?text=No+Image" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ $recomendado->nombre }}</h5>
                             <p class="card-text">${{ $recomendado->precio }} mnx</p>

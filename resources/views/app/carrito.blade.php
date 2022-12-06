@@ -14,7 +14,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="https://placehold.jp/350x350.png" class="img-fluid rounded-start" alt="...">
+                                <img src="http://via.placeholder.com/350x350.png?text=No+Image" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
