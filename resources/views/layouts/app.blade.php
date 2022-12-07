@@ -21,13 +21,22 @@
     {{-- PWA assets--}}
     @laravelPWA
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J5VH44DCNL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J5VH44DCNL');
+</script>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
-                    <div><img src="/img/snapup1.png" class="pe-3" alt="logo"></div>
-                    <div>SnapUp Prueba 1</div>
+                    <div><img src="{{ asset('/img/snapup1.png') }}" class="pe-3" alt="logo"></div>
+                    <div>SnapUp</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
