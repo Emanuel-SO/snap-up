@@ -22,4 +22,8 @@ class Producto extends Model
     public function productimages(){
         return $this->hasMany(Productimage::class);
     }
+
+    public function productimages_last(){
+        return $this->hasOne(Productimage::class)->latestOfMany();
+    }
 }

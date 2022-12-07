@@ -58,7 +58,13 @@
             @foreach ($productos as $producto)
             <div class="col-lg-3 my-2">
                 <div class="card" >
-                    <img src="http://via.placeholder.com/350x200.png?text=No+Image" class="card-img-top" alt="...">
+                  @if($producto->productimages_last)
+                    
+                    
+                    <img src="{{ asset('imagenes/productos_imagenes/'.$producto->productimages_last['producto_imagen']) }}" class="card-img-top" alt="...">    
+                  @else
+                  <img src="http://via.placeholder.com/350x200.png?text=No+Image" class="card-img-top" alt="...">
+                  @endif
                     <div class="card-body">
                         <h3 class="card-title">{{ $producto['nombre'] }}</h3>
                         

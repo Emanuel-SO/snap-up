@@ -14,7 +14,11 @@ class AppController extends Controller
     public function index(){
         
         $categorias = Categoria::all();
-        $productos = Producto::with('productimages')->get();
+       /*  User::find(1)->with(['posts' => function ($query) {
+            $query->first();
+        }]); */
+        
+        $productos = Producto::with('productimages_last')->get();
         //$productos_imagenes = Productimage::with('producto')->get();
         
         //dd($productos);
