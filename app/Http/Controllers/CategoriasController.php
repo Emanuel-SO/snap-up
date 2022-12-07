@@ -40,7 +40,7 @@ class CategoriasController extends Controller
         ]);
 
         Categoria::create($data);
-        return redirect('/dashboard/categorias');
+        return redirect()->route('categorias.index');
     }
 
     public function edit(Categoria $categoria){
@@ -54,7 +54,7 @@ class CategoriasController extends Controller
         ]);
 
         $categoria->update($data);
-        return redirect('dashboard/categorias');
+        return redirect()->route('categorias.index');
     }
 
     public function destroy(Categoria $categoria){

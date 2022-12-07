@@ -7,8 +7,11 @@
                 <div class="card-body">
                     <div>
                         <h1>Agregar Nueva Categoría</h1>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">{{-- agregar a este btn la funcion para agregar nuevos producstos --}}
+                            <a class="btn btn-success" href="{{ route('categorias.index') }}" role="button">Regresar a Categorias</a>
+                        </div>
                     </div>
-                    <form method="POST" action="{{ route('categorias.index') }}">
+                    <form method="POST" action="{{ route('categorias.store') }}">
                         @csrf
 
                         <div class="row mb-3">

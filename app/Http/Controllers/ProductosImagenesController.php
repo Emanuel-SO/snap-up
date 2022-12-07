@@ -56,7 +56,7 @@ class ProductosImagenesController extends Controller
 
         $producto->productimages()->create(['producto_imagen' => $name]);
 
-        return redirect('/dashboard/productos_imagenes/'.$producto->id);
+        return view('dashboard.productos_imagenes.show', compact('producto'));
     }
 
     public function edit( $producto_imagen) {

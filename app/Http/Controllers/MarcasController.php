@@ -49,7 +49,7 @@ class MarcasController extends Controller
         ]);
 
         Marca::create($data);
-        return redirect('/dashboard/marcas');
+        return redirect()->route('marcas.index');
     }
 
     public function edit(Marca $marca){
@@ -62,7 +62,7 @@ class MarcasController extends Controller
         ]);
 
         $marca->update($data);
-        return redirect('dashboard/marcas');
+        return redirect()->route('marcas.index');
     }
 
     public function destroy(Marca $marca){

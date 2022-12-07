@@ -17,7 +17,7 @@ class AppController extends Controller
         $productos = Producto::with('productimages')->get();
         //$productos_imagenes = Productimage::with('producto')->get();
         
-        //dd($categorias);
+        //dd($productos);
        
        
         

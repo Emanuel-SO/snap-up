@@ -7,8 +7,11 @@
                 <div class="card-body">
                     <div>
                         <h1>Agregar Nueva Marca</h1>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">{{-- agregar a este btn la funcion para agregar nuevos producstos --}}
+                            <a class="btn btn-success" href="{{ route('marcas.index') }}" role="button">Regresar a Marcas</a>
+                        </div>
                     </div>
-                    <form method="POST" action="{{ route('marcas.index') }}">
+                    <form method="POST" action="{{ route('marcas.store') }}">
                         @csrf
 
                         <div class="row mb-3">

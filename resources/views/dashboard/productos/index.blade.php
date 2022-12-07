@@ -31,16 +31,16 @@
                             <td>{{ $producto->cantidad }}</td>
                             <td>{{ $producto->oferta }}</td>
                             <td class="d-flex">
-                                <a class="btn btn-warning mr-3" href="productos/{{ $producto->id }}/edit" role="button">Editar</a>
+                                <a class="btn btn-warning mr-3" href="{{ route('productos.edit', $producto->id) }}" role="button">Editar</a>
                                 {{-- <a class="btn btn-danger" href="{{ route('marcas.destroy', [$marca->id]) }}" role="button">Eliminar</a> --}}
-                                <form action="productos/{{ $producto->id }}" method="post">
+                                <form action=" {{ route('productos.destroy', $producto->id) }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger mr-3">
                                         Eliminar
                                     </button>
                                 </form>
-                                <a class="btn btn-info mr-3" href="productos_imagenes/{{ $producto->id }}" role="button">Imagenes</a>
+                                <a class="btn btn-info mr-3" href="{{ route('productos_imagenes.show', $producto->id) }}" role="button">Imagenes</a>
                             </td>
                         </tr>
                     @endforeach

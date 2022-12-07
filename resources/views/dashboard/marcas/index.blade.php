@@ -24,9 +24,9 @@
                             <th scope="row">{{ $marca->id }}</th>
                             <td>{{ $marca->nombre }}</td>
                             <td class="d-flex">
-                                <a class="btn btn-info mr-3" href="marcas/{{ $marca->id }}/edit" role="button">Editar</a>
+                                <a class="btn btn-info mr-3" href="{{ route('marcas.edit', $marca->id) }}" role="button">Editar</a>
                                 {{-- <a class="btn btn-danger" href="{{ route('marcas.destroy', [$marca->id]) }}" role="button">Eliminar</a> --}}
-                                <form action="marcas/{{ $marca->id }}" method="post">
+                                <form action="{{ route('marcas.destroy', $marca->id) }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger">

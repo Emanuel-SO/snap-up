@@ -7,8 +7,11 @@
                 <div class="card-body">
                     <div>
                         <h1>Editar Producto</h1>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a class="btn btn-success" href="{{ route('productos.index') }}" role="button">Volver a productos</a>
+                        </div>
                     </div>
-                    <form method="POST" action="/dashboard/productos/{{ $producto->id }}">
+                    <form method="POST" action="{{ route('productos.update',$producto->id) }}">
                         @csrf
                         @method('PATCH')
 

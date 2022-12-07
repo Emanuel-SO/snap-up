@@ -55,7 +55,7 @@ class ProductosController extends Controller
         //dd($producto);
         $producto->save();
         
-        return redirect('/dashboard/productos');
+        return view('dashboard.productos.index');
         /* Producto::create($data);
         return redirect('/dashboard/productos'); */
     }
@@ -74,7 +74,7 @@ class ProductosController extends Controller
 
     public function update(Producto $producto){
         $data = request()->validate([
-            'nombre' => ['required','unique:App\Models\Producto,nombre'],
+            'nombre' => ['required'],
             'descripcion'=> 'required',
             'precio' => 'required',
             'cantidad' => 'required',
@@ -89,8 +89,10 @@ class ProductosController extends Controller
         //dd($producto);
         $producto->update($data);
 
+        return redirect()->route('productos.index');
 
-        return redirect('dashboard/productos');
+
+        return view('dashboard.productos.index', compact('productos'));
     }
 
     public function destroy(Producto $producto){
