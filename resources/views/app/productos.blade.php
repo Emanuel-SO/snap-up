@@ -4,56 +4,69 @@
     <img class="img-fluid" src="http://via.placeholder.com/1920x350.png?text=Titulo+Seccion" alt="" srcset="">
 
     {{-- <h1>Productos</h1> --}}
-    <div class="container">
-        <div class="row">
-            <div class="text-center">
-                <div class="dropdown m-3">
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            
+                <div class="dropdown  col-lg-2 text-center my-2">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Opciones
+                      Marcas
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Buscar por Categoría</a></li>
-                      <li><a class="dropdown-item" href="#">Buscar por Marcas</a></li>
+                        <li><a class="dropdown-item" href="{{ route('app.showTodosProductos') }}">Todos los productos</a></li>
+                        @foreach ($marcas as $marca)
+                          <li><a class="dropdown-item" href="{{ route('app.buscarMarca', $marca->id) }}">{{ $marca->nombre }}</a></li>
+                        @endforeach
                       
                     </ul>
                 </div>
-            </div>
+                <div class="dropdown  col-lg-2 text-center my-2">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Categorías
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('app.showTodosProductos') }}">Todos los productos</a></li>
+                        @foreach ($categorias as $categoria)
+                          <li><a class="dropdown-item" href="{{ route('app.buscarCategoria', $categoria->id) }}">{{ $categoria->nombre }}</a></li>
+                        @endforeach
+                      
+                    </ul>
+                </div>
+                <div class="input-group  col-lg-2">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Buscar</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            
         </div>
     </div>
     
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-sm-12 px-3">
-                @foreach ($categorias as $categoria )
-                    <button class="btn btn-primary col-sm-9 col-md-2 mx-2 my-2">{{ $categoria->nombre }}</button>
-                @endforeach
-            </div>
-            <div class="col-sm-12 px-3">
-                @foreach ($marcas as $marca )
-                    <button class="btn btn-primary col-sm-9 col-md-2 mx-2 my-2">{{ $marca->nombre }}</button>
-                @endforeach
-            </div>
-        </div>
-    </div>
+      
+    
+    
 </section>
-
+<div class="d-flex justify-content-center">
+    {!! $productos->links() !!}
+</div>
 <section class="section">
     <div class="container ">
-        <div class="d-flex justify-content-center">
-            {!! $productos->links() !!}
-        </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
-            @foreach ($productos as $producto)    
-                <div class="col col-lg-3 my-2">
-                    <div class="card" >
-                        <img src="http://via.placeholder.com/350x200.png?text=No+Image" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $producto->nombre }}</h5>
-                            <p class="card-text">${{ $producto->precio }} mxn</p>
-                            <a href="{{ route('app.showProducto', $producto->id) }}" class="btn btn-primary">Ver Producto</a>
-                        </div>
+            @foreach ($productos as $producto)
+            <div class="col-lg-3 my-2">
+                <div class="card" >
+                @if($producto->productimages_last)
+                    
+                    
+                    <img src="{{ asset('imagenes/productos_imagenes/'.$producto->productimages_last['producto_imagen']) }}" class="card-img-top" alt="...">    
+                @else
+                <img src="http://via.placeholder.com/350x200.png?text=No+Image" class="card-img-top" alt="...">
+                @endif
+                    <div class="card-body">
+                        <h3 class="card-title">{{ $producto['nombre'] }}</h3>
+                        
+                        <p class="card-text">${{ $producto['precio'] }} mnx</p>
+                        <a href="{{ route('app.showProducto', $producto->id) }}" class="btn btn-primary">Ver Producto</a>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>

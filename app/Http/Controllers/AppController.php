@@ -46,7 +46,7 @@ class AppController extends Controller
 
     public function showTodosProductos(){
         $categorias = Categoria::all();
-        $productos = Producto::with('productimages')->get();
+        $productos = Producto::with('productimages')->paginate(8);
         $marcas = Marca::all();
        
         return view('app.productos',compact('productos','categorias','marcas'));
@@ -58,5 +58,26 @@ class AppController extends Controller
         $productos = Producto::with('productimages_last')->where('oferta',1)->where('categoria_id', $categoria)->paginate(8); 
         
         return view("app.index", compact('productos','categorias'));
+    }
+
+    public function buscarCategoria($id){
+        $categorias = Categoria::all();
+        $marcas = Marca::all();
+        $productos = Producto::with('productimages_last')->where('categoria_id',$id)->paginate(8);
+
+        
+
+        return view('app.productos',compact('productos','categorias','marcas'));
+
+    }
+
+    public function buscarMarca($id){
+        $categorias = Categoria::all();
+        $marcas = Marca::all();
+        $productos = Producto::with('productimages_last')->where('marca_id',$id)->paginate(8);
+
+        
+
+        return view('app.productos',compact('productos','categorias','marcas'));
     }
 }
