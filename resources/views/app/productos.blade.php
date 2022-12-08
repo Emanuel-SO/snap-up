@@ -1,7 +1,16 @@
 @extends('layouts.app')
 @section('content')
 <section class="section">
-    <img class="img-fluid" src="http://via.placeholder.com/1920x350.png?text=Titulo+Seccion" alt="" srcset="">
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img src="{{ asset('img\catalogo.jpg') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="900" height="150" loading="lazy">
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Mira estos Productos</h1>
+          </div>
+        </div>
+      </div>
 
     {{-- <h1>Productos</h1> --}}
     <div class="container my-4">

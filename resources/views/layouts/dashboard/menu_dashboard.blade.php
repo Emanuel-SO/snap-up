@@ -83,21 +83,7 @@
         </li>
 
 
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagina"
-                aria-expanded="true" aria-controls="collapsePagina">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Configuración</span>
-            </a>
-            <div id="collapsePagina" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Opciones Página:</h6>
-                    <a class="collapse-item" href="login.html">Configuración</a>
-                    
-                </div>
-            </div>
-        </li>
+        
 
         
     @endif

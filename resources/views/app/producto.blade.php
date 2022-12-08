@@ -39,7 +39,20 @@
                         <p class="card-text">${{ $producto->precio }} mnx</p>
                         <p class="card-text">Disponibles: {{ $producto->cantidad }}</p>
                         
-                        <a href="#" class="btn btn-primary">Agregar a Carrito</a>
+                        <form action="{{ route('cart.store') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            
+                            <input type="hidden" value="{{ $producto->id }}" name="id">
+                            <input type="hidden" value="{{ $producto->nombre }}" name="name">
+                            <input type="hidden" value="{{ $producto->precio }}" name="price">
+                            <input type="hidden" value="1" name="quantity">
+                            <input type="hidden" value="{{ $imagen }}" name="image">
+                            
+                            
+                            <button class="btn btn-success mt-2">
+                                Agregar a carrito
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

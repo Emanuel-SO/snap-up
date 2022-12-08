@@ -59,7 +59,7 @@
                             <a class="nav-link" href="{{ route('app.showTodosProductos') }}">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/carrito') }}">Carrito</a>
+                            <a class="nav-link" href="{{ route('cart.list') }}">Carrito ({{ Cart::getTotalQuantity()}})</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

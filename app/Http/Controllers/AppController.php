@@ -33,15 +33,19 @@ class AppController extends Controller
         $marca = Producto::findOrFail($producto)->marca;
         $categoria = Producto::findOrFail($producto)->categoria;
         $producto_imagenes = Producto::findOrFail($producto)->productimages;
-
+        $imagen = Producto::with('productimages_last')->where('id',$producto)->first();
+        //dd($imagen->productimages_last );
+        if($imagen->productimages_last === null){
+            $imagen = null;
+        }else{
+            $imagen = $imagen->productimages_last->producto_imagen;
+        }
         $producto = Producto::findOrFail($producto);
 
         $recomendados = Marca::findOrFail($marca->id)->productos;
-
         //dd($recomendados);
-        //dd($producto);
 
-        return view('app.producto', compact('producto','categoria','marca','producto_imagenes','recomendados'));
+        return view('app.producto', compact('producto','categoria','marca','producto_imagenes','recomendados','imagen'));
     }
 
     public function showTodosProductos(){

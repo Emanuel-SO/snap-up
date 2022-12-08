@@ -32,6 +32,7 @@ class HomeController extends Controller
         $marca = Marca::count();
         $categoria = Categoria::count();
         $producto = Producto::count();
+        dd(session()->all());
         //Como hacer que index reciba el id del usuario
         /* $user= User::find(1);
         $role_id = $user->role_id;
