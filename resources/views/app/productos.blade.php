@@ -39,6 +39,9 @@
 
 <section class="section">
     <div class="container ">
+        <div class="d-flex justify-content-center">
+            {!! $productos->links() !!}
+        </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
             @foreach ($productos as $producto)    
                 <div class="col col-lg-3 my-2">

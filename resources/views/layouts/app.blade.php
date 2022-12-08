@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- PWA assets--}}
     @laravelPWA
 </head>
@@ -51,10 +53,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="{{ url('/') }}">Inicio</a>
+                            <a class="nav-link" href="{{ route('app.index') }}">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/productos') }}">Productos</a>
+                            <a class="nav-link" href="{{ route('app.showTodosProductos') }}">Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/carrito') }}">Carrito</a>

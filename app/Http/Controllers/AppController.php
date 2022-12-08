@@ -18,7 +18,7 @@ class AppController extends Controller
             $query->first();
         }]); */
         
-        $productos = Producto::with('productimages_last')->get();
+        $productos = Producto::with('productimages_last')->where('oferta',1)->paginate(8);
         //$productos_imagenes = Productimage::with('producto')->get();
         
         //dd($productos);
@@ -50,5 +50,13 @@ class AppController extends Controller
         $marcas = Marca::all();
        
         return view('app.productos',compact('productos','categorias','marcas'));
+    }
+
+    public function ofertas($categoria){
+        
+        $categorias = Categoria::all();
+        $productos = Producto::with('productimages_last')->where('oferta',1)->where('categoria_id', $categoria)->paginate(8); 
+        
+        return view("app.index", compact('productos','categorias'));
     }
 }

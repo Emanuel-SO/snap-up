@@ -4,7 +4,8 @@ return [
     'name' => 'SnapUp-PWA',
     'manifest' => [
         'name' => env('APP_NAME', 'SnapUp PWA App'),
-        'short_name' => 'PWA',
+        'short_name' => 'SnapUp',
+        #'start_url' => 'https://utdgrupoti.com/snap-up/public/',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
@@ -13,6 +14,7 @@ return [
         'status_bar'=> 'black',
         'icons' => [
             '72x72' => [
+                #'path' => '/snap-up/public/images/icons/icon-72x72.png',
                 'path' => '/images/icons/icon-72x72.png',
                 'purpose' => 'any'
             ],
