@@ -6,8 +6,20 @@
     <h1 class="display-4 fw-bold">Bienvenidos a SnapUp</h1>
     <div class="col-lg-6 mx-auto">
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Ingresar</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Registrarse</button>
+        
+              
+         
+            @if (auth()->user())
+              <a href="{{ route('login') }}" type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Ir Dashboard</a>
+            @else
+              <a href="{{ route('login') }}" type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Ingresar</a>
+              <a href="{{ route('register') }}" type="button" class="btn btn-outline-secondary btn-lg px-4">Registrarse</a>
+
+            @endif   
+
+        
+         
+        
       </div>
     </div>
     <div class="overflow-hidden" style="max-height: 30vh;">
