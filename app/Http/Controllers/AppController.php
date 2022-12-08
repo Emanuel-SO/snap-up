@@ -45,8 +45,16 @@ class AppController extends Controller
     }
 
     public function showTodosProductos(){
-        $categorias = Categoria::all();
         $productos = Producto::with('productimages')->paginate(8);
+        
+        /* if(request('search')){
+            $productos = Producto::when($request->search, function ($query, $search) {
+                return $query->where('nombre', 'like', $search = "%{$search}%")
+                    ->orWhere('descripcion', 'like', $search);
+            })->get();
+        } */
+        
+        $categorias = Categoria::all();
         $marcas = Marca::all();
        
         return view('app.productos',compact('productos','categorias','marcas'));

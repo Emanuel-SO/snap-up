@@ -9,32 +9,34 @@
             
                 <div class="dropdown  col-lg-2 text-center my-2">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Marcas
+                      Buscar por Marcas
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('app.showTodosProductos') }}">Todos los productos</a></li>
                         @foreach ($marcas as $marca)
-                          <li><a class="dropdown-item" href="{{ route('app.buscarMarca', $marca->id) }}">{{ $marca->nombre }}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('app.buscarMarca', $marca->id) }}">{{ $marca->nombre }}</a></li>
                         @endforeach
+                        <li><a class="dropdown-item" href="{{ route('app.showTodosProductos') }}">Todos los productos</a></li>
                       
                     </ul>
                 </div>
                 <div class="dropdown  col-lg-2 text-center my-2">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Categorías
+                      Buscar por Categorías
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('app.showTodosProductos') }}">Todos los productos</a></li>
                         @foreach ($categorias as $categoria)
-                          <li><a class="dropdown-item" href="{{ route('app.buscarCategoria', $categoria->id) }}">{{ $categoria->nombre }}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('app.buscarCategoria', $categoria->id) }}">{{ $categoria->nombre }}</a></li>
                         @endforeach
+                        <li><a class="dropdown-item" href="{{ route('app.showTodosProductos') }}">Todos los productos</a></li>
                       
                     </ul>
                 </div>
-                <div class="input-group  col-lg-2">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Buscar</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
+                {{-- <form action="" method="get">
+                    <div class="input-group  col-lg-2">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Buscar</span>
+                        <input type="text" value="{{ request('search') }}" name="search" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="¿Qué desea buscar?">
+                    </div>
+                </form> --}}
             
         </div>
     </div>
