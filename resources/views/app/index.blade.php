@@ -2,8 +2,8 @@
 @section('content')
 <section class="section">
   <div class="px-4 pt-5 my-5 text-center border-bottom">
-    <img class="d-block mx-auto mb-4" src="{{ asset('images\icons\icon-192x192.png') }}" alt="" width="72" height="57">
-    <h1 class="display-4 fw-bold">Bienvenidos a SnapUp</h1>
+    <img class="d-block mx-auto mb-4" src="{{ asset('images\icons\artstation192.png') }}" alt="" width="72" height="57">
+    <h1 class="display-4 fw-bold">Bienvenidos</h1>
     <div class="col-lg-6 mx-auto">
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
         

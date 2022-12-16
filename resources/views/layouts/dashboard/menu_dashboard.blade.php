@@ -4,9 +4,9 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-            <img src="{{ asset('img/snapup1.png') }}"  alt="">
+       
         </div>
-        <div class="sidebar-brand-text mx-3">SnapUp</div>
+        <div class="sidebar-brand-text mx-3">Proyecto</div>
     </a>
 
     <!-- Divider -->

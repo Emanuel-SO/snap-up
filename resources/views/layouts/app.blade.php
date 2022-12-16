@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SnapUp</title>
+    <title>Proyecto</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -37,8 +37,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
-                    <div><img src="{{ asset('/img/snapup1.png') }}" class="pe-3" alt="logo"></div>
-                    <div>SnapUp</div>
+                    <div> </div>
+                    <div>Proyecto</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -54,6 +54,9 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('app.index') }}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('app.nosotros') }}">Nosotros</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('app.showTodosProductos') }}">Productos</a>
@@ -105,4 +108,5 @@
         </main>
     </div>
 </body>
+<footer></footer>
 </html>

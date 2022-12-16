@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
 
     public function createAdmin(){
         $user = new User;
-        $user->name= 'Emanuel';
-        $user->email= 'emanuelsaucedo52@gmail.com';
+        $user->name= 'David';
+        $user->email= 'davidcrrll00@gmail.com';
         $user->password = Hash::make('1234567890');
         $user->role_id = 1;
         $user->save();
@@ -38,8 +38,8 @@ class DatabaseSeeder extends Seeder
 
     public function createUser(){
         $user = new User;
-        $user->name= 'Emanuel Prueba';
-        $user->email= 'emanuel-75@hotmail.es';
+        $user->name= 'David Prueba';
+        $user->email= 'davidprueba@gmail.com';
         $user->password = Hash::make('1234567890');
         $user->role_id = 2;
         $user->save();

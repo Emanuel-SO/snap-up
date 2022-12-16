@@ -19,6 +19,9 @@ Route::get('/offline', function(){
 });
     //RUTAS APP
 Route::get('/', [App\Http\Controllers\AppController::class, 'index'])->name('app.index');
+Route::get('/nosotros', function () {
+    return view('app.nosotros');
+})->name('app.nosotros');
 Route::get('ofertas/{categoria}', [App\Http\Controllers\AppController::class, 'ofertas'])->name('app.ofertas');
 Route::get('buscar/categoria/{id}', [App\Http\Controllers\AppController::class, 'buscarCategoria'])->name('app.buscarCategoria');
 Route::get('buscar/marca/{id}', [App\Http\Controllers\AppController::class, 'buscarMarca'])->name('app.buscarMarca');
@@ -118,3 +121,7 @@ Route::patch('dashboard/productos_imagenes/update/{producto}', [App\Http\Control
 Route::delete('dashboard/productos_imagenes/{producto}', [App\Http\Controllers\ProductosImagenesController::class, 'destroy'])
     ->middleware('auth.admin')
     ->name('productos_imagenes.destroy');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

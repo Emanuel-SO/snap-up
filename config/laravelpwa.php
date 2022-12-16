@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'name' => 'SnapUp-PWA',
+    'name' => 'Proyecto',
     'manifest' => [
-        'name' => env('APP_NAME', 'SnapUp PWA App'),
-        'short_name' => 'SnapUp',
+        'name' => env('APP_NAME', 'Proyecto PWA App'),
+        'short_name' => 'Proyecto',
         #'start_url' => 'https://utdgrupoti.com/snap-up/public/',
         'start_url' => '/',
         'background_color' => '#ffffff',
